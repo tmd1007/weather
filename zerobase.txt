@@ -1,0 +1,24 @@
+++++++++++++++++++++++++++++++++++++++++
+데이터 베이스 트랜잭션의 4가지 원칙 (ACID)
+
+원자성(Atomicity) : 트랜잭션의 작업은 모두 수행되거나, 모두 수행되지 않아야한다. 즉 트랜잭션 내에서 어떤 작업이 실패하면 모든 작업이 취소되어야만 한다.
+
+일관성(Consistency) : 트랜잭션이 수행되기 전과 후에 데이터베이스의 일관성이 유지되어야만 한다.
+
+격리성(Isolation) : 여러개의 트랜잭션이 수행되더라도 각각의 트랜잭션이 다른 트랜잭션에 영향을 주지 않도록 독립성을 보장해야만 한다.
+
+지속성(Durability) : 트랜잭션이 성공적으로 완료되면 그 결과가 데이터베이스에 영구적으로 적용되어야만 한다.
+++++++++++++++++++++++++++++++++++++++++
+
+- 여러 트랜잭션이 경쟁하면 생기는 문제
+1. Dirty Read
+2. Non-Repeatable Read
+3. Phantom Read
+
+- Spring 트랜잭션 세부설정
+1.Isolation (격리 수준) : 트랜잭션에서 일관성이 없는 데이터를 허용하는 수준
+- DEFAULT
+- READ_UNCOMMITED		(Dirty Read 발생)
+- READ_COMMITED		(Drity Read 방지)
+- REPEATABLE_READ		(Non-Repeatable Read 방지)
+- SERIALIZABLE		(Phantom Read 방지)
